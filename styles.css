@@ -1,100 +1,73 @@
 body {
-  margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  overflow: hidden;
-}
-
-.workspace {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  gap: 40px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.upload-box {
-  width: 250px;
-  padding: 20px;
-  background: #ffffffcc;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background: #f0f4f8;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  height: fit-content;
-  transition: all 0.3s ease;
 }
 
-.upload-box input[type="file"] {
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.upload-area {
+  border: 2px dashed #aaa;
+  padding: 30px;
+  border-radius: 15px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.upload-area:hover {
+  background: #f0f0f0;
+}
+
+.upload-area p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+#fileElem {
   display: none;
 }
 
-.upload-box label {
+#outputImage {
+  max-width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
   cursor: pointer;
-  color: #007bff;
-  font-weight: bold;
 }
 
-.upload-box p {
-  color: #333;
-  margin: 0;
-  font-size: 16px;
+.buttons {
+  margin-top: 15px;
 }
 
-.image-container {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.1);
-  background-color: white;
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
-.image-wrapper {
-  position: absolute;
-  cursor: grab;
+button:hover {
+  background-color: #0056b3;
 }
 
-.checkerboard {
-  background-image: url('feee3fed-52fa-4820-b5f4-acb3aae4287e.png'); /* Your checkerboard pattern */
-  background-size: 40px 40px;
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.processed-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-.slider {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 4px;
-  height: 100%;
-  background: #007bff;
-  cursor: ew-resize;
-  z-index: 3;
-  border-radius: 2px;
-}
-
-.revealer {
-  position: absolute;
-  overflow: hidden;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-
-.revealer img {
-  position: absolute;
-  top: 0;
-  left: 0;
+.hidden {
+  display: none;
 }
