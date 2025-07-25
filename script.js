@@ -48,27 +48,31 @@ function handleImage(file) {
   reader.readAsDataURL(file);
 }
 
-async function removeBackground(base64) {
-  const response = await fetch("/api/remove", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      imageBase64: base64.split(",")[1]
-    })
-  });
+async function removeBackgroundReal(base64, fileName = "image.png") {
+  const base64Data = base64.split(',')[1];
+  const formData = new FormData();
+  formData.append("image_file_b64", base64Data);
+  formData.append("size", "auto");
 
-  if (!response.ok) {
-    alert("Error: " + await response.text());
-    return;
-  }
+  try {
+    const response = await fetch("https://api.remove.bg/v1.0/removebg", {
+      method: "POST",
+      headers: {
+        "X-Api-Key": "EjACnuyhfgFhXjpnstv8EjT8",
+      },
+      body: formData,
+    });
 
-  const blob = await response.blob();
-  const url = URL.createObjectURL(blob);
-  processedImg.src = url;
-}
-{
+    if (!response.ok) {
+      const errorText = await response.text();
+      alert("Background removal failed:\n" + errorText);
+      return;
+    }
+
+    const blob = await response.blob();
+    const objectURL = URL.createObjectURL(blob);
+    showResult(objectURL);
+
   } catch (error) {
     alert("An error occurred: " + error.message);
   }
