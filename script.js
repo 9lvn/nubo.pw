@@ -66,7 +66,6 @@ async function removeBackgroundReal(base64) {
 
     const data = await response.json();
     showResult(data.image);
-
   } catch (error) {
     alert("An error occurred: " + error.message);
   }
