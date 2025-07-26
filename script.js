@@ -72,8 +72,35 @@ async function removeBackgroundReal(base64) {
 }
 
 function showResult(src) {
-  outputImage.src = src;
-  resultArea.classList.remove("hidden");
+  const img = new Image();
+  img.crossOrigin = "Anonymous"; // optional
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    // Draw image
+    ctx.drawImage(img, 0, 0);
+
+    // Watermark settings
+    const watermarkText = "https://nubo.pw/";
+    ctx.font = `${Math.floor(canvas.width / 20)}px Segoe UI`;
+    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    // Rotate context for diagonal text
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.rotate(-Math.atan(canvas.height / canvas.width));
+    ctx.fillText(watermarkText, 0, 0);
+
+    // Set the output image
+    outputImage.src = canvas.toDataURL("image/png");
+    resultArea.classList.remove("hidden");
+  };
+  img.src = src;
 }
 
 downloadBtn.addEventListener("click", () => {
