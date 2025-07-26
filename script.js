@@ -61,7 +61,7 @@ async function removeBackgroundReal(base64) {
 }
 function showResult(src) {
   const img = new Image();
-  img.crossOrigin = "Anonymous"; // optional
+  img.crossOrigin = "Anonymous";
   img.onload = () => {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
