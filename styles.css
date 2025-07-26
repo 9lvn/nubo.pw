@@ -1,6 +1,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f0f4f8;
+  background: #0e0e11;
+  color: #f0f0f0;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -10,32 +11,36 @@ body {
   max-width: 600px;
   margin: 50px auto;
   padding: 30px;
-  background: white;
+  background: #1a1a1f;
   border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
 }
 
-h1 {
+h1, h2 {
+  color: #ffffff;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .upload-area {
-  border: 2px dashed #aaa;
+  border: 2px dashed #3a3a3a;
   padding: 30px;
   border-radius: 15px;
-  background: #fafafa;
+  background: #25252b;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background 0.3s, border-color 0.3s;
 }
 
 .upload-area:hover {
-  background: #f0f0f0;
+  background: #2e2e36;
+  border-color: #5e5e5e;
 }
 
 .upload-area p {
   margin: 0;
   font-size: 1rem;
-  color: #666;
+  color: #bbbbbb;
 }
 
 #fileElem {
@@ -45,29 +50,54 @@ h1 {
 #outputImage {
   max-width: 100%;
   margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+#outputImage:hover {
+  transform: scale(1.02);
 }
 
 .buttons {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 button {
-  background-color: #007bff;
-  color: white;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 12px 24px;
   font-size: 1rem;
-  border-radius: 25px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: background 0.3s ease-in-out, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
 }
 
 button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #0099ff, #0056cc);
+  transform: translateY(-2px);
 }
 
 .hidden {
   display: none;
+}
+
+.credit {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.credit a {
+  color: #00c6ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.credit a:hover {
+  color: #66d0ff;
 }
