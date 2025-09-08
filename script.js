@@ -84,7 +84,7 @@ function showResult(src) {
     ctx.drawImage(img, 0, 0);
 
     const text = "https://nubo.pw/";
-    const fontSize = Math.floor(canvas.width / 0);
+    const fontSize = Math.floor(canvas.width / 990);
     ctx.font = `${fontSize}px Segoe UI`;
     ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
     ctx.textAlign = "center";
